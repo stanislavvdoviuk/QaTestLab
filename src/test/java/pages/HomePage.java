@@ -7,6 +7,9 @@ public class HomePage extends TopPart {
 
     private ProductsContainerComponent productsContainerComponent;
 
+    public HomePage(WebDriver driver)
+    {   super(driver);
+        initElements();}
     private void initElements()
     {
         productsContainerComponent=new ProductsContainerComponent(driver);

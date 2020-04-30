@@ -30,6 +30,10 @@
 
       <!-- - - - - - Logging - - - - - -->
       <org.slf4j.version>1.7.30</org.slf4j.version>
+
+      <maven.compiler.source>1.8</maven.compiler.source>
+      <maven.compiler.target>1.8</maven.compiler.target>
+
   </properties>
 
     <dependencies>
@@ -87,20 +91,16 @@
                         </goals>
                         <!-- Uncomment for download automatically -->
                         <phase>test-compile</phase>
-                        <!-- <phase>process-test-classes</phase> -->
-                        <!-- <phase>test</phase> -->
                     </execution>
                 </executions>
                 <configuration>
                     <installationDirectory>${project.build.directory}/test-classes</installationDirectory>
-                    <!-- <installationDirectory>${project.basedir}/src/test/resources</installationDirectory> -->
                     <keepDownloadedWebdrivers>true</keepDownloadedWebdrivers>
                     <drivers>
                         <driver>
                             <name>chromedriver</name>
                             <!--suppress UnresolvedMavenProperty -->
                             <platform>${os.detected.name}</platform>
-                            <!-- <platform>windows</platform> -->
                             <bit>32</bit>
                             <url>https://chromedriver.storage.googleapis.com/80.0.3987.106/chromedriver_win32.zip</url>
                         </driver>

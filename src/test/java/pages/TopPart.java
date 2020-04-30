@@ -17,6 +17,11 @@ public class TopPart {
     private WebElement logIn;
     private WebElement categorie;
 
+    public TopPart(WebDriver driver)
+    {
+        initElement();
+    }
+
     private void initElement(){
         currency=driver.findElement(By.cssSelector(".currency-selector .expand-more"));
         searchField=driver.findElement(By.cssSelector(".ui-autocomplete-input"));
