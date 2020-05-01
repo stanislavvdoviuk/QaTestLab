@@ -4,67 +4,90 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class ProductComponent {
-    private WebElement productLayout;
+//    private WebElement productLayout;
+    public String Price;
 
-    private WebElement name;
-    private WebElement price;
-    private WebElement regularPrice;
-    private WebElement discountPercentage;
-    private WebElement productThumbnail;
+    private By nameSelector = By.cssSelector(".product-title");
+    private By priceSelector = By.cssSelector(".price");
+    private By regularPriceSelector = By.cssSelector(".regular-price");
+    private By discountPercentageSelector = By.cssSelector(".discount-percentage");
+    private By productThumbnailSelector = By.cssSelector(".product-thumbnail");
 
-    public ProductComponent(WebElement productLayout) {
-        this.productLayout = productLayout;
-        initElements();
-    }
-    private void initElements() {
-        // init elements
-        name=productLayout.findElement(By.cssSelector(".product-title"));
-        price=productLayout.findElement(By.cssSelector(".price"));
-        regularPrice=productLayout.findElement(By.cssSelector(".regular-price"));
-        discountPercentage=productLayout.findElement(By.cssSelector(".discount-percentage"));
-        productThumbnail=productLayout.findElement(By.cssSelector(".product-thumbnail"));
-    }
-    // product
-    public WebElement getProductLayout() {
-        return productLayout;
+    public WebElement getProductName(WebElement product)
+    {
+        return product.findElement(nameSelector);
     }
 
-    // name
-    public WebElement getName() {
-        return name;
+    public WebElement getProductPrice(WebElement product)
+    {
+        return product.findElement(priceSelector);
+    }
+    public WebElement getProductRegularPrice(WebElement product)
+    {
+        return product.findElement(regularPriceSelector);
+    }
+    public WebElement getProductDiscount(WebElement product)
+    {
+        return product.findElement(discountPercentageSelector);
+    }
+    public WebElement getProductThumbnail(WebElement product)
+    {
+        return product.findElement(productThumbnailSelector);
     }
 
-    public String getNameText() {
-        return getName().getText();
+//    public Double getDoublePrice()
+//    {
+//        String[] str=getPriceText().split("\\s+");
+//        double price = Double.parseDouble(str[0]);
+//        return price;
+//    }
+    public String getProductCurrency(WebElement product)
+    {
+        String[] productCurrency=getProductRegularPrice(product).getText().split("\\s+");
+        return productCurrency[1];
     }
+//
+//    // regular price
+//    public WebElement getRegularPrice() {
+//        return productLayout.findElement(regularPriceSelector);
+//    }
+//
+//    public String getRegularPriceText() {
+//        return getRegularPrice().getText();
+//    }
+//
+//    public Double getDoubleRegularPrice()
+//    {
+//        String[] str=getRegularPriceText().split("\\s+");
+//        double regularPrice = Double.parseDouble(str[0]);
+//        return regularPrice;
+//    }
+//
+//    // discount
+//    public WebElement getDiscountPercentage() {
+//        return productLayout.findElement(discountPercentageSelector);
+//    }
+//
+//    public String getDiscountPercentageText() {
+//        return getDiscountPercentage().getText();
+//    }
 
-    public void clickName() {
-        getName().click();
-    }
-    // price
-    public WebElement getPrice() {
-        return price;
-    }
-
-    public String getPriceText() {
-        return getPrice().getText();
-    }
-
-    // regular price
-    public WebElement getRegularPrice() {
-        return regularPrice;
-    }
-
-    public String getRegularPriceText() {
-        return getRegularPrice().getText();
-    }
-    // price
-    public WebElement getDiscountPercentage() {
-        return discountPercentage;
-    }
-
-    public String getDiscountPercentageText() {
-        return getDiscountPercentage().getText();
-    }
+//    public Double getDoubleDiscount()
+//    {
+////        Pattern pattern = Pattern.compile("(\\d+)%");
+////        Matcher matcher = pattern.matcher(getDiscountPercentage().getText());
+////        String g1 = matcher.group();
+////
+////        Pattern pattern = Pattern.compile("(\\d+)%");
+////        Matcher matcher = pattern.matcher("123%");
+////        matcher.find();
+////        System.out.println(matcher.group(1));
+//////        String[] str=getDiscountPercentageText().split("\\d+");
+//
+//        return discount;
+//    }
 }
