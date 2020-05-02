@@ -14,16 +14,12 @@ public class TopPart {
     public static final Logger logger = LoggerFactory.getLogger(TopPart.class);
 
     private By currentCurrencySelector = By.cssSelector(".currency-selector span.expand-more");
-
     private By dropdownCurrencySelector = By.cssSelector(".currency-selector .dropdown-menu");
-
     private By searchFieldSelector = By.cssSelector(".ui-autocomplete-input");
     private By searchButtonSelector = By.cssSelector("#search_widget button");
     private By logoSelector = By.cssSelector("#_desktop_logo");
     private By currentLanguageSelector = By.cssSelector(".language-selector");
-
     private By dropdownLanguageSelector = By.cssSelector(".language-selector .dropdown-menu");
-
     private By shoppingCartSelector = By.cssSelector("#_desktop_cart");
     private By contactUsSelector = By.cssSelector("#contact-link");
     private By logInSelector = By.cssSelector(".user-info");

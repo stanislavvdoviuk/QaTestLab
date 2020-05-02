@@ -10,9 +10,9 @@ import java.util.regex.Pattern;
 
 public class SearchSuccessPage extends TopPart{
     protected WebDriver driver;
-    private By totalProductSelector=By.cssSelector(".total-products");
-    private By sortByMenu=By.cssSelector(".select-title");
-    private By sortByDropdown=By.cssSelector("#js-product-list-top > div:nth-child(2) > div > div > div");
+    private By totalProductSelector = By.cssSelector(".total-products");
+    private By sortByMenu = By.cssSelector(".select-title");
+    private By sortByDropdown = By.cssSelector("#js-product-list-top > div:nth-child(2) > div > div > div");
 
     public SearchSuccessPage(WebDriver driver)  {
         super(driver);

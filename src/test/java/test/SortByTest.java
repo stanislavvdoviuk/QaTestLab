@@ -1,9 +1,6 @@
 package test;
 
-import data.Currency;
-import data.Languages;
 import data.SortBy;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;

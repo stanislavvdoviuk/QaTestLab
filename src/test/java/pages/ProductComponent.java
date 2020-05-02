@@ -43,7 +43,7 @@ public class ProductComponent {
 
     public Double getDoublePrice(WebElement product)
     {
-        String[] str=getProductPrice(product).getText().split("\\s+");
+        String[] str = getProductPrice(product).getText().split("\\s+");
         double price = Double.parseDouble(str[0].replace(",", "."));
         return price;
     }
@@ -55,7 +55,7 @@ public class ProductComponent {
 
     public Double getDoubleRegularPrice(WebElement product)
     {
-        String[] str=getProductRegularPrice(product).getText().split("\\s+");
+        String[] str = getProductRegularPrice(product).getText().split("\\s+");
         double regularPrice = Double.parseDouble(str[0].replace(",", "."));
         return regularPrice;
     }

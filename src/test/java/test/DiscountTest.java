@@ -12,7 +12,7 @@ import java.util.List;
 public class DiscountTest extends LocalTestRunner{
     @Test(description = "Check if the price before and after the discounts is the same as the specified discount size.")
     public void checkDiscount() throws InterruptedException {
-        ProductsContainerComponent productsContainerComponent=new ProductsContainerComponent(getDriver());
+        ProductsContainerComponent productsContainerComponent = new ProductsContainerComponent(getDriver());
         List<WebElement> productElements = productsContainerComponent.getProductElements();
         ProductComponent productComponent = new ProductComponent();
 
