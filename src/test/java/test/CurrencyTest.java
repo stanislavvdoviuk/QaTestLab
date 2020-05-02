@@ -20,7 +20,7 @@ public class CurrencyTest extends LocalTestRunner{
      TopPart topPart=new TopPart(getDriver());
      ProductsContainerComponent productsContainerComponent=new ProductsContainerComponent(getDriver());
      Thread.sleep(2000);
-     //topPart.selectCurrency(Currency.US_DOLLAR.toString());
+     topPart.selectCurrency(Currency.US_DOLLAR.toString());
      String actual=topPart.getCurrentCurrencySymbol();
 
      List<WebElement> productElements = productsContainerComponent.getProductElements();

@@ -22,6 +22,7 @@ public abstract class LocalTestRunner  {
     protected WebDriver launch() throws InterruptedException {
         WebDriver driver = getDriver();
         driver.get(url);
+        driver.manage().timeouts().implicitlyWait(2000, TimeUnit.MILLISECONDS);
         return driver;
     }
 
