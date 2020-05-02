@@ -1,6 +1,5 @@
 package pages;
 
-import data.SortBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -38,9 +37,8 @@ public class SearchSuccessPage extends TopPart{
     }
 
     private void openSortByDropdownComponent() {
-
-        WebElement w = getSortByList();
         getSortByList().click();
+        logger.info("Clicking on SortBy dropdown.");
     }
 
     public SearchSuccessPage selectSortingType(String sortBy)  {
@@ -51,6 +49,7 @@ public class SearchSuccessPage extends TopPart{
                 a.click();
             }
         }
+        logger.info("Clicking on "+sortBy);
         return new SearchSuccessPage(driver);
     }
 }

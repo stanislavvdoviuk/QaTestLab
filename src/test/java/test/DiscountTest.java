@@ -1,19 +1,16 @@
 package test;
 
-import data.Currency;
 import helper.NumberHelper;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.HomePage;
 import pages.ProductComponent;
 import pages.ProductsContainerComponent;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class DiscountTest extends LocalTestRunner{
-    @Test
+    @Test(description = "Check if the price before and after the discounts is the same as the specified discount size.")
     public void checkDiscount() throws InterruptedException {
         ProductsContainerComponent productsContainerComponent=new ProductsContainerComponent(getDriver());
         List<WebElement> productElements = productsContainerComponent.getProductElements();
@@ -29,6 +26,5 @@ public class DiscountTest extends LocalTestRunner{
                 Assert.assertEquals(price, expectedPrice);
             }
         }
-
     }
 }

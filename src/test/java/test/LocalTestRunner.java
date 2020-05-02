@@ -17,15 +17,13 @@ import java.util.concurrent.TimeUnit;
 public abstract class LocalTestRunner  {
     private String url = "http://prestashop-automation.qatestlab.com.ua/ru/";
     private WebDriver driver;
-    protected SoftAssert softAssert;
 
     protected WebDriver launch() throws InterruptedException {
         WebDriver driver = getDriver();
         driver.get(url);
-        driver.manage().timeouts().implicitlyWait(2000, TimeUnit.MILLISECONDS);
+        driver.manage().timeouts().implicitlyWait(1000, TimeUnit.MILLISECONDS);
         return driver;
     }
-
     protected WebDriver getDriver() throws InterruptedException {
         if (driver == null) {
             WebDriverManager.chromedriver().setup();
@@ -35,33 +33,9 @@ public abstract class LocalTestRunner  {
         }
         return driver;
     }
-//    protected WebDriver getDriver() {
-//        WebDriver currentWebDriver = drivers.get(Thread.currentThread().getId());
-//        if (currentWebDriver == null) {
-//            currentWebDriver = new ChromeDriver();
-//            currentWebDriver.manage().window().maximize();
-//            currentWebDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-//            drivers.put(Thread.currentThread().getId(), currentWebDriver);
-//        }
-//        return currentWebDriver;
-//    }
-//    @BeforeSuite
-//    public void beforeSuite() {
-//        WebDriverManager.chromedriver().setup();
-//    }
-//
-////    @BeforeClass
-////    public void beforeClass(ITestContext context) {
-////        drivers = new HashMap<Long, WebDriver>();
-////        for (Map.Entry<String, String> entry : context.getCurrentXmlTest().getAllParameters().entrySet()) {
-////                url = entry.getValue();
-////        }
-////    }
-
-//    @AfterClass(alwaysRun = true)
-//    public void afterClass() {
-//        driver.quit();
-//    }
-
+    @AfterClass(alwaysRun = true)
+    public void afterClass() {
+        driver.quit();
+    }
 }
 

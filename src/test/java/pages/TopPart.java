@@ -1,17 +1,17 @@
 package pages;
-import data.Currency;
-import data.Languages;
-import net.bytebuddy.implementation.bytecode.Throw;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.server.handler.WebElementHandler;
-import org.openqa.selenium.support.ui.Select;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import test.SummaryTest;
+
 
 import java.util.List;
 
 public class TopPart {
     protected WebDriver driver;
+    public static final Logger logger = LoggerFactory.getLogger(TopPart.class);
 
     private By currentCurrencySelector = By.cssSelector(".currency-selector span.expand-more");
 
@@ -43,8 +43,6 @@ public class TopPart {
     }
     public String getCurrentCurrencySymbol()
     {
-//        getCurrentCurrency().getText();
-//        return getCurrentCurrency().getText().substring(getCurrentCurrency().getText().length()-1);
         String[] str=getCurrentCurrency().getText().split("\\s+");
         return str[1];
     }
@@ -100,7 +98,9 @@ public class TopPart {
 
     public void setSearchTopField(String product) {
         getSearchField().click();
+        logger.info("Clicking on SearchField.");
         getSearchField().sendKeys(product);
+        logger.info("Entering product: "+product);
     }
 
     //searchButton
@@ -110,6 +110,7 @@ public class TopPart {
 
     public void clickSearchTopButton()  {
         getSearchButton().click();
+        logger.info("Clicking on SearchButton.");
     }
     public SearchSuccessPage searchProduct(String product)
     {
@@ -128,17 +129,20 @@ public class TopPart {
     //Currency
     private void openCurrencyDropdownComponent() {
         clickCurrentCurrency();
+        logger.info("Clicking Currency Dropdown.");
+
     }
 
     public TopPart selectCurrency(String curr) throws InterruptedException {
         openCurrencyDropdownComponent();
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         List<WebElement> dropdownCurrencyElements=driver.findElement(dropdownCurrencySelector).findElements(By.tagName("li"));
         for (WebElement li : dropdownCurrencyElements) {
             if (li.getText().equals(curr)) {
                 li.click();
             }
         }
+        logger.info("Choosing on currency: "+ curr);
         return new TopPart(driver);
     }
 

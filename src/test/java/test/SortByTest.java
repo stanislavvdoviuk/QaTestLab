@@ -13,10 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SortByTest extends LocalTestRunner {
-    @Test
+    @Test(description = "Check if all products is sorted by price")
     public void checkSortByMenu() throws InterruptedException {
-        TopPart topPart=new TopPart(getDriver());
-        Thread.sleep(2000);
         SearchSuccessPage searchSuccessPage = new SearchSuccessPage(getDriver())
                 .searchProduct("dress")
                 .selectSortingType(SortBy.PRICE_HIGH_LOW.toString());
