@@ -15,7 +15,7 @@
   <properties>
 
       <!-- - - - - - Test - - - - - -->
-      <org.testng.version>6.14.3</org.testng.version>
+      <org.testng.version>7.7.0</org.testng.version>
 
       <!-- - - - - - Automation - - - - - -->
       <org.seleniumhq.selenium.version>3.141.59</org.seleniumhq.selenium.version>
